@@ -14,6 +14,9 @@ struct ContentView: View {
     @State private var previousIndex = 1
     @State private var showEndView: Bool = false
     @State private var title = ""
+    @State private var startTime: Date = Date()
+    @State private var endTime: Date = Date()
+    @State private var playtime: String = ""
     
     var body: some View {
         ZStack {
@@ -21,13 +24,25 @@ struct ContentView: View {
                 ForEach(randomInts, id: \.self) { index in
                     if gridStatus[index] ?? true {
                         Button {
+                            if index == 1 {
+                                startTime = Date()
+                            }
+                            
                             if index > previousIndex {
+                                if previousIndex == 1{
+                                    playtime = ""
+                                } else {
+                                    endTime = Date()
+                                    playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
+                                }
                                 title = "실패😭"
                                 showEndView = true
                             } else {
                                 previousIndex = index + 1
                                 self.gridStatus[index] = false
                                 if index == randomInts.count {
+                                    endTime = Date()
+                                    playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
                                     title = "성공🎉"
                                     showEndView = true
                                 }
@@ -56,6 +71,8 @@ struct ContentView: View {
                 VStack {
                     Text(title)
                         .font(.system(size: 80))
+                    Text(playtime)
+                        .font(.system(size: 40))
                 }
                 .frame(width: 370, height: 500)
                 .background(.white)
@@ -81,6 +98,8 @@ struct ContentView: View {
         color = color.shuffled()
         previousIndex = 1
         showEndView = false
+        playtime = ""
+        startTime = Date()
     }
 }
 
