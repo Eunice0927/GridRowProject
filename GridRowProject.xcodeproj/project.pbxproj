@@ -13,7 +13,7 @@
 		9E66C0E92B022B0700959691 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E66C0E82B022B0700959691 /* Preview Assets.xcassets */; };
 		9E66C0F02B022B1400959691 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9E66C0EF2B022B1300959691 /* .gitignore */; };
 		9EF914192B024E0200042493 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF914182B024E0200042493 /* ContentViewModel.swift */; };
-		9EF9141B2B0252E300042493 /* GameEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9141A2B0252E300042493 /* GameEnd.swift */; };
+		9EF9141D2B0254AF00042493 /* GameEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9141C2B0254AF00042493 /* GameEnd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,7 @@
 		9E66C0E82B022B0700959691 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E66C0EF2B022B1300959691 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9EF914182B024E0200042493 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
-		9EF9141A2B0252E300042493 /* GameEnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEnd.swift; sourceTree = "<group>"; };
+		9EF9141C2B0254AF00042493 /* GameEnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEnd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 				9E66C0E12B022B0500959691 /* GridRowProjectApp.swift */,
 				9E66C0E32B022B0500959691 /* ContentView.swift */,
 				9EF914182B024E0200042493 /* ContentViewModel.swift */,
-				9EF9141A2B0252E300042493 /* GameEnd.swift */,
+				9EF9141C2B0254AF00042493 /* GameEnd.swift */,
 				9E66C0E52B022B0700959691 /* Assets.xcassets */,
 				9E66C0E72B022B0700959691 /* Preview Content */,
 			);
@@ -148,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EF914192B024E0200042493 /* ContentViewModel.swift in Sources */,
-				9EF9141B2B0252E300042493 /* GameEnd.swift in Sources */,
+				9EF9141D2B0254AF00042493 /* GameEnd.swift in Sources */,
 				9E66C0E42B022B0500959691 /* ContentView.swift in Sources */,
 				9E66C0E22B022B0500959691 /* GridRowProjectApp.swift in Sources */,
 			);

@@ -19,4 +19,25 @@ class ContentViewModel: ObservableObject {
         endTime = Date()
         playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
     }
+    
+    enum GameEnd {
+        case gameOver
+        case gameSuccess
+    }
+
+    func gameStatus(_ status: GameEnd) {
+        switch status {
+        case .gameOver:
+            if previousIndex == 1{
+                playtime = ""
+            } else {
+                setEndTime()
+            }
+            title = "실패😭"
+            showEndView = true
+        case .gameSuccess:
+            title = "성공🎉"
+            showEndView = true
+        }
+    }
 }
