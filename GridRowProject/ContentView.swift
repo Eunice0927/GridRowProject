@@ -63,7 +63,7 @@ struct ContentView: View {
         Button {
             reset()
         } label: {
-            Text("Reset")
+            Text("다시하기")
                 .frame(width: 90, height: 40)
                 .background(.blue)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
