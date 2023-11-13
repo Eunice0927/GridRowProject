@@ -27,6 +27,10 @@ struct ContentView: View {
                             } else {
                                 previousIndex = index + 1
                                 self.gridStatus[index] = false
+                                if index == randomInts.count {
+                                    title = "성공🎉"
+                                    showEndView = true
+                                }
                             }
                         } label: {
                             Text("\(index)")
