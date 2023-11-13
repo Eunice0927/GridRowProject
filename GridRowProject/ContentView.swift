@@ -25,13 +25,13 @@ struct ContentView: View {
                             }
                             
                             if index > viewModel.previousIndex {
-                                gameStatus(GameEnd.gameOver)
+                                viewModel.gameStatus(.gameOver)
                             } else {
                                 viewModel.previousIndex = index + 1
                                 self.gridStatus[index] = false
                                 if index == randomInts.count {
                                     viewModel.setEndTime()
-                                    gameStatus(GameEnd.gameSuccess)
+                                    viewModel.gameStatus(.gameSuccess)
                                 }
                             }
                         } label: {
