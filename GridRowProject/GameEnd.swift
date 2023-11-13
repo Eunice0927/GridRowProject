@@ -23,7 +23,7 @@ func gameStatus(_ status: GameEnd) {
         if previousIndex == 1{
             playtime = ""
         } else {
-            setEndTime()
+//            setEndTime()
         }
         title = "실패😭"
         showEndView = true
