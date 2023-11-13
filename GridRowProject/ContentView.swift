@@ -80,6 +80,7 @@ struct ContentView: View {
         randomInts = randomInts.shuffled()
         color = color.shuffled()
         previousIndex = 1
+        showEndView = false
     }
 }
 
