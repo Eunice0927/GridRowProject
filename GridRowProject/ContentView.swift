@@ -15,16 +15,25 @@ struct ContentView: View {
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 50)), count: 4)) {
             ForEach(randomInts, id: \.self) { index in
-                Button {
-                    
-                } label: {
-                    Text("\(index)")
-                        .frame(minWidth: 50, maxWidth: .infinity, minHeight: 100)
+                if gridStatus[index] ?? true {
+                    Button {
+                        self.gridStatus[index] = false
+                    } label: {
+                        Text("\(index)")
+                            .frame(minWidth: 50, maxWidth: .infinity, minHeight: 100)
+                    }
+                    .background(color[index % color.count])
+                    .foregroundStyle(.white)
+                    .cornerRadius(8)
+                    .font(.largeTitle)
+                } else {
+                    Button("") {
+                        self.gridStatus[index] = false
+                    }
+                    .frame(minWidth: 50, maxWidth: .infinity, minHeight: 100)
+                    .background(.clear)
+                    .cornerRadius(8)
                 }
-                .background(color[index % color.count])
-                .foregroundStyle(.white)
-                .cornerRadius(8)
-                .font(.largeTitle)
             }
         }
         .padding()
