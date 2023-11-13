@@ -32,8 +32,7 @@ struct ContentView: View {
                                 if previousIndex == 1{
                                     playtime = ""
                                 } else {
-                                    endTime = Date()
-                                    playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
+                                    setEndTime()
                                 }
                                 title = "실패😭"
                                 showEndView = true
@@ -41,8 +40,7 @@ struct ContentView: View {
                                 previousIndex = index + 1
                                 self.gridStatus[index] = false
                                 if index == randomInts.count {
-                                    endTime = Date()
-                                    playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
+                                    setEndTime()
                                     title = "성공🎉"
                                     showEndView = true
                                 }
@@ -100,6 +98,11 @@ struct ContentView: View {
         showEndView = false
         playtime = ""
         startTime = Date()
+    }
+    
+    func setEndTime() {
+        endTime = Date()
+        playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
     }
 }
 
