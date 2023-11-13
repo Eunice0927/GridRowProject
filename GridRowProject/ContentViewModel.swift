@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ContentViewModel: ObservableObject {
+    var gridStatus = [0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true, 13: true, 14: true, 15: true, 16: true, 17: true, 18: true, 19: true, 20: true]
+    var randomInts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].shuffled()
+    var color: [Color] = [.yellow, .green, .purple].shuffled()
     var previousIndex = 1
     var showEndView: Bool = false
     @Published var title = ""
