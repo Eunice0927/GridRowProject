@@ -29,20 +29,13 @@ struct ContentView: View {
                             }
                             
                             if index > previousIndex {
-                                if previousIndex == 1{
-                                    playtime = ""
-                                } else {
-                                    setEndTime()
-                                }
-                                title = "실패😭"
-                                showEndView = true
+                                gameStatus(GameEnd.gameOver)
                             } else {
                                 previousIndex = index + 1
                                 self.gridStatus[index] = false
                                 if index == randomInts.count {
                                     setEndTime()
-                                    title = "성공🎉"
-                                    showEndView = true
+                                    gameStatus(GameEnd.gameSuccess)
                                 }
                             }
                         } label: {
