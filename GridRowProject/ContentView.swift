@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ContentViewModel()
+    
     @State private var gridStatus = [0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true, 13: true, 14: true, 15: true, 16: true, 17: true, 18: true, 19: true, 20: true]
     @State private var randomInts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].shuffled()
     @State private var color: [Color] = [.yellow, .green, .purple].shuffled()
-    @State private var previousIndex = 1
-    @State private var showEndView: Bool = false
-    @State private var title = ""
-    @State private var startTime: Date = Date()
-    @State private var endTime: Date = Date()
-    @State private var playtime: String = ""
     
     var body: some View {
         ZStack {
@@ -25,16 +21,16 @@ struct ContentView: View {
                     if gridStatus[index] ?? true {
                         Button {
                             if index == 1 {
-                                startTime = Date()
+                                viewModel.startTime = Date()
                             }
                             
-                            if index > previousIndex {
+                            if index > viewModel.previousIndex {
                                 gameStatus(GameEnd.gameOver)
                             } else {
-                                previousIndex = index + 1
+                                viewModel.previousIndex = index + 1
                                 self.gridStatus[index] = false
                                 if index == randomInts.count {
-                                    setEndTime()
+                                    viewModel.setEndTime()
                                     gameStatus(GameEnd.gameSuccess)
                                 }
                             }
@@ -58,11 +54,11 @@ struct ContentView: View {
             }
             .padding()
             
-            if showEndView {
+            if viewModel.showEndView {
                 VStack {
-                    Text(title)
+                    Text(viewModel.title)
                         .font(.system(size: 80))
-                    Text(playtime)
+                    Text(viewModel.playtime)
                         .font(.system(size: 40))
                 }
                 .frame(width: 370, height: 500)
@@ -87,15 +83,10 @@ struct ContentView: View {
         gridStatus = [0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true, 13: true, 14: true, 15: true, 16: true, 17: true, 18: true, 19: true, 20: true]
         randomInts = randomInts.shuffled()
         color = color.shuffled()
-        previousIndex = 1
-        showEndView = false
-        playtime = ""
-        startTime = Date()
-    }
-    
-    func setEndTime() {
-        endTime = Date()
-        playtime = String("\(round(endTime.timeIntervalSince(startTime)*100)/100)초")
+        viewModel.previousIndex = 1
+        viewModel.showEndView = false
+        viewModel.playtime = ""
+        viewModel.startTime = Date()
     }
 }
 
